@@ -1,0 +1,27 @@
+User Stories:
+    - User types into search and results section 
+      updates based on their search.
+    - user adds/removes indredients and clickes adds
+      search button. this will populate the results 
+      section based on the ingredients they selected.
+        - after initial search the search button 
+          changes to an update button the user can 
+          then adds other indredients and filters i.e. 
+          dietary requirements and then update the results.
+    - The user can then scroll through the list of 
+      recipe sesults.
+    - The user can then click view recipe that will 
+      open an iFrame containing the full recipe.
+
+
+Componet Breakdown:
+    - App / main page that will eventually pull 
+      pages (components) using Router. Initially 
+      this will just contain the search functionality.
+      This will also be where the nav is contained
+          - Search page
+              - Search bar
+              - Results section
+              - Filter section
+                  - ingredient selection
+                  - Dietary requirements filter
