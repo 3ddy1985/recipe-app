@@ -1,5 +1,126 @@
+body {
+  height: 100vh;
+}
+
+
+/* header styling */
+header {
+  display: flex;
+  width: 100vw;
+  height: 150px;
+  background-image: url('./louis-hansel-phEaeqe555M-unsplash.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-search {
+  width: 40%;
+  height: 50px;
+  border-radius: 50px;
+  border: none;
+  padding-left: 30px;
+  background-color: rgba(0, 0, 0, 0.342);
+  color: white!important;
+}
+
+::placeholder {
+  color: white;
+}
+
+/* header styling end */
+
+/* Ingredient styling for both ingredientSection and myIngredients*/
+.ingredients-section {
+  width: 25%!important;
+  height: 80vh;
+  overflow: auto;
+}
+
 .ingredient {
   margin: 5px!important;
   padding: 5px 25px;
+  border: none;
+  background-color: rgb(190, 190, 190);
   border-radius: 50px!important;
+}
+
+.selected-ingredient {
+  margin: 5px!important;
+  padding: 5px 25px;
+  border: none;
+  background-color: rgb(188, 245, 207);
+  border-radius: 50px!important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(209, 208, 208); 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(134, 134, 134); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2b2a2a; 
+}
+
+/* Handle on hover */
+*:hover::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* ingredient styling end */
+
+
+
+
+/* recipe section styling */
+.recipe-section {
+  width: 50%!important;
+  padding: 10px;
+  height: 80vh;
+  overflow: auto;
+}
+
+.recipe-card {
+  display: block;
+  max-width: 100%;
+  padding: 20px;
+  background-color: antiquewhite;
+  border-radius: 20px;
+  margin: 20px 30px;
+}
+
+.float-right {
+  display: inline-block;
+  text-align: center;
+}
+
+.recipe-thumbnail {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+
+.recipe-title {
+  text-align: center;
+}
+/* recipe section styling end */
+
+
+.my-ingredients{
+  width:25%!important;
 }

@@ -3,6 +3,15 @@ import Recipes from "./Recipes";
 import SearchBox from "./SearchBox";
 import IngredientSection from "./IngredientsSection";
 import MyIngredients from "./MyIngredients";
+import axios from 'axios'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+const baseURL = 'https://api.edamam.com/api/recipes/v2';
+const appId = process.env.REACT_APP_API_ID;
+const appKey = process.env.REACT_APP_API_KEY;
 
 export default class HomePage extends React.Component {
     constructor(props) {
@@ -60,24 +69,49 @@ export default class HomePage extends React.Component {
         }
     }
     
+    searchRecipes = () => {
+        const params = {
+            type: 'public',
+            q: this.state.selectedIngredients.join(','),
+            app_id: appId,
+            app_key: appKey,
+        };
+
+        axios
+            .get(baseURL, { params })
+            .then((response) => {
+                this.setState({
+                    recipes: response.data.hits
+                });
+                console.log(response.data.hits)
+            })
+            .catch((error) => console.log(error));
+    };
   
     render() {
         return(
             <>
-                <nav>Home</nav>
-                <SearchBox />
-                <IngredientSection 
-                    allIngredients={this.state.allIngredients}
-                    selectedIngredients={this.state.selectedIngredients}
-                    compareIngredientsSearch={this.compareIngredientsSearch}
-                    handleSearchInputChange={this.handleSearchInputChange}
-                    handleIngredientClick={this.handleIngredientClick}
-                />
-                <Recipes />     
-                <MyIngredients 
-                    myIngredients={this.state.selectedIngredients}
-                    handleIngredientClick={this.handleIngredientClick}
-                />           
+                <header>
+                    <SearchBox />
+                </header>
+                <Container fluid>
+                    <Row>
+                        <IngredientSection 
+                            allIngredients={this.state.allIngredients}
+                            selectedIngredients={this.state.selectedIngredients}
+                            compareIngredientsSearch={this.compareIngredientsSearch}
+                            handleSearchInputChange={this.handleSearchInputChange}
+                            handleIngredientClick={this.handleIngredientClick}
+                        />
+                        <Recipes recipes={this.state.recipes}/>     
+                        <MyIngredients 
+                            myIngredients={this.state.selectedIngredients}
+                            handleIngredientClick={this.handleIngredientClick}
+                            searchByIngredients={this.searchRecipes}
+
+                        />  
+                </ Row>
+                </ Container>         
             </>
         )
     }

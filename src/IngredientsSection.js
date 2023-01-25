@@ -28,7 +28,7 @@ export default class IngredientSection extends React.Component {
             <option key={index} className="ingredient"  >{ingredient}</option>
         ))
         return (
-            <div>
+            <div className="ingredients-section">
                 <div>
                 <input 
                     type="text" 
