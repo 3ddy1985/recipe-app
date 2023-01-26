@@ -34,6 +34,7 @@ export default class IngredientSection extends React.Component {
                     type="text" 
                     name="example" 
                     list="exampleList"
+                    className="ingredient-search"
                     placeholder="Search Ingredients"
                     value={this.props.handleSearchInput}
                     onChange={this.props.compareIngredientsSearch}

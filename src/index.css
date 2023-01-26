@@ -2,6 +2,9 @@ body {
   height: 100vh;
 }
 
+.hidden {
+  display: none;
+}
 
 /* header styling */
 header {
@@ -21,12 +24,12 @@ header {
   border-radius: 50px;
   border: none;
   padding-left: 30px;
-  background-color: rgba(0, 0, 0, 0.342);
-  color: white!important;
+  background-color: rgba(83, 82, 82, 0.342);
+  color: #f7f3f3;
 }
 
 ::placeholder {
-  color: white;
+  color: rgb(231, 229, 229);
 }
 
 /* header styling end */
@@ -35,7 +38,18 @@ header {
 .ingredients-section {
   width: 25%!important;
   height: 80vh;
+  padding: 20px 0px 0px 0px;
   overflow: auto;
+}
+
+.ingredient-search {
+  color: #f7f3f3;
+  width: 100%;
+  height: 50px;
+  border-radius: 50px;
+  border: 1px solid rgb(121, 120, 120);
+  padding: 0px 20px;
+  background-color: rgba(83, 82, 82, 0.342);
 }
 
 .ingredient {
@@ -123,4 +137,42 @@ header {
 
 .my-ingredients{
   width:25%!important;
+}
+
+
+
+.create-recipe-form {
+  position: absolute;
+  margin: auto;
+/* margin-right: auto; */
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+text-align: center;
+  display: block;
+  background-color: rgba(255, 255, 255, 0.527);
+  border: 1px solid rgb(34, 34, 34);
+  border-radius: 20px;
+  max-width: 500px;
+  max-height: 600px;
+  padding: 50px;
+}
+
+#rname, #portions, #time {
+  color: #f7f3f3;
+  width: 100%;
+  height: 50px;
+  border-radius: 50px;
+  border: 1px solid rgb(121, 120, 120);
+  padding: 0px 20px;
+  background-color: rgba(83, 82, 82, 0.342);
+}
+
+.page-overlay {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0);
 }

@@ -5,7 +5,9 @@ export default class MyRecipes extends React.Component {
     render() {
         return(
             <>
-            <CreateRecipe />
+            {/* <CreateRecipe 
+            myRecipes={this.props.myRecipes}
+            handleCreateRecipe={this.props.handleCreateRecipe}/> */}
             </>
         )
     }
