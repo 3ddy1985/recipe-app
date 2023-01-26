@@ -45,7 +45,7 @@ export default class IngredientSection extends React.Component {
                             {filtered}
                         </datalist>
                 </div>
-                <div>
+                <div className="accordion">
                     <Accordion defaultActiveKey={['0']} alwaysOpen>
                         {Object.keys(ingredients).map((catagory, index) => (
                             <Accordion.Item eventKey={index}>

@@ -39,10 +39,13 @@ export default class RecipeApp extends React.Component {
 render() {
     return(
       <Router>
+        <div className="background">
+          <div className="top-gradient">
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="/my-recipes">My Recipes</Link>
+          <Link className="nav-link" to="/">Home</Link>
+          <Link className="nav-link" to="/my-recipes">My Recipes</Link>
         </nav>
+        </div>
         <>
           <Route exact path="/" component={HomePage} />
           <Route path="/my-recipes" 
@@ -65,6 +68,8 @@ render() {
         <button>Cancel</button>
         </div>
         </div>
+        </div>
+        <div className="bottom-gradient"></div>
       </Router>
 
       

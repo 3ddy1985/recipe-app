@@ -1,12 +1,10 @@
 import React from "react";
 import Recipes from "./Recipes";
-import SearchBox from "./SearchBox";
 import IngredientSection from "./IngredientsSection";
 import MyIngredients from "./MyIngredients";
 import axios from 'axios'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const baseURL = 'https://api.edamam.com/api/recipes/v2';
@@ -72,14 +70,16 @@ export default class HomePage extends React.Component {
     searchRecipes = () => {
         const params = {
             type: 'public',
-            q: this.state.selectedIngredients.join(','),
+            q: 'NOT REQUIRED',
             app_id: appId,
             app_key: appKey,
+            
         };
 
         axios
             .get(baseURL, { params })
             .then((response) => {
+                console.log(response)
                 this.setState({
                     recipes: response.data.hits
                 });
@@ -92,7 +92,7 @@ export default class HomePage extends React.Component {
         return(
             <>
                 <header>
-                    <SearchBox />
+                <input className="main-search" placeholder="Search recipes..."></input>
                 </header>
                 <Container fluid>
                     <Row>
