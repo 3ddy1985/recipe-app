@@ -72,7 +72,7 @@ export default class HomePage extends React.Component {
     searchRecipes = () => {
         const params = {
             type: 'public',
-            q: 'NOT REQUIRED',
+            q: this.state.selectedIngredients.join(','),
             app_id: appId,
             app_key: appKey,
             
