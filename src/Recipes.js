@@ -1,6 +1,11 @@
 import React from "react";
 
 export default class Recipes extends React.Component {
+
+    handleSaveRecipe = (recipeData) => {
+        this.props.saveRecipe(recipeData);
+    }
+    
     render() {
         const recipeList = this.props.recipes.map((recipe, index) => {
             const total_time_minutes = recipe.recipe.totalTime;
@@ -29,8 +34,10 @@ export default class Recipes extends React.Component {
                                 </small>
                                 </p>
                                     <div className="recipe-card-buttons">
+                                        <a href={recipe.recipe.url}>
                                     <button className="full-recipe-button">View full recipe</button>
-                                    <button className="save-recipe-button">Save recipe</button>
+                                    </a>
+                                    <button className="save-recipe-button" onClick={() => this.props.handleSaveRecipe(recipe)}>Save recipe</button>
                                     </div>
                                 </div>
                             </div>

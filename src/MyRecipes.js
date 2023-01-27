@@ -22,6 +22,21 @@ export default class MyRecipes extends React.Component {
                 )
             })
         }
+        let savedRecipes = []
+        if(this.props.savedRecipes && Array.isArray(this.props.savedRecipes)) {
+           savedRecipes = this.props.savedRecipes.map((savedRecipe, index) => {
+            return (
+                <div className="card mb-3" key={index}>
+                    <div className="card-body">
+                        <h5 className="card-title">{savedRecipe.recipe.label}</h5>
+                        <p className="card-text">
+                            <small className="text-muted">Total time: {savedRecipe.recipe.totalTime}</small>
+                        </p>
+                    </div>
+                </div>
+            )
+        });
+    }
 
 
 
@@ -35,6 +50,7 @@ export default class MyRecipes extends React.Component {
                         </div>
                         <div className="saved-recipes">
                             <h3>My saved recipes</h3>
+                            {savedRecipes}
                         </div>
                     </div>
                 </div>

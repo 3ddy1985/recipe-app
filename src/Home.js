@@ -23,7 +23,7 @@ export default class HomePage extends React.Component {
             selectedIngredients: [],
         }
     }
-    
+
     componentDidMount() {
         const ingredientButtons = document.querySelectorAll(".ingredient");
         const ingredientContent = [...ingredientButtons].map(button => button.textContent)
@@ -105,7 +105,9 @@ export default class HomePage extends React.Component {
                             handleSearchInputChange={this.handleSearchInputChange}
                             handleIngredientClick={this.handleIngredientClick}
                         />
-                        <Recipes recipes={this.state.recipes}/>     
+                        <Recipes recipes={this.state.recipes}
+                        savedRecipes={this.props.savedRecipes} 
+                        handleSaveRecipe={this.props.handleSaveRecipe}/>     
                         <MyIngredients 
                             myIngredients={this.state.selectedIngredients}
                             handleIngredientClick={this.handleIngredientClick}

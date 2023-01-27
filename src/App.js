@@ -14,7 +14,8 @@ export default class RecipeApp extends React.Component {
 
     this.state = {
       myRecipes: [],
-      hiddenToggle: false,
+      savedRecipes: [],
+      hiddenToggle: "hidden",
     }
   }
 
@@ -50,6 +51,13 @@ handleDeleteRecipe = index => {
   });
 }
 
+handleSaveRecipe = (recipe) => {
+  this.setState(prevState => ({
+      savedRecipes: [...prevState.savedRecipes, recipe]
+  }));
+}
+
+
 
 render() {
     return(
@@ -63,9 +71,16 @@ render() {
         </nav>
         </div>
         <>
-          <Route exact path="/" component={HomePage} />
+          <Route exact path="/" render={(props) => <HomePage {...props} 
+          savedRecipes={this.state.savedRecipes} 
+          handleSaveRecipe={this.handleSaveRecipe} />} />
           <Route path="/my-recipes" 
-          render={(props) => <MyRecipes {...props} myRecipes={this.state.myRecipes} handleDeleteRecipe={this.handleDeleteRecipe}/>} />
+          render={(props) => <MyRecipes {...props} 
+          myRecipes={this.state.myRecipes} 
+          savedRecipes={this.state.savedRecipes} 
+          handleDeleteRecipe={this.handleDeleteRecipe}
+          handleSaveRecipe={this.handleSaveRecipe}
+          />} />
         </>
         <div className={`"page-overlay" ${this.state.hiddenToggle ? "hidden" : ""}`}>
         <div className="create-recipe-form">

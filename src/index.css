@@ -135,7 +135,6 @@ li {
 .recipe-card-buttons {
   position: absolute;
   bottom: 0;
-  width: 100%;
   justify-content: center;
   padding-bottom: 20px;
 }
