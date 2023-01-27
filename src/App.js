@@ -14,7 +14,14 @@ export default class RecipeApp extends React.Component {
 
     this.state = {
       myRecipes: [],
+      hiddenToggle: false,
     }
+  }
+
+  toggleHiddenClass = () => {
+    this.setState(prevState => ({
+      hiddenToggle: !prevState.hiddenToggle
+    }))
   }
 
   handleCreateRecipe = event => {
@@ -35,6 +42,14 @@ export default class RecipeApp extends React.Component {
     }
 }
 
+handleDeleteRecipe = index => {
+  this.setState(prevState => {
+      const myRecipes = [...prevState.myRecipes];
+      myRecipes.splice(index, 1);
+      return { myRecipes };
+  });
+}
+
 
 render() {
     return(
@@ -44,15 +59,15 @@ render() {
         <nav>
           <Link className="nav-link" to="/">Home</Link>
           <Link className="nav-link" to="/my-recipes">My Recipes</Link>
+          <button onClick={this.toggleHiddenClass}>Create Recipe</button>
         </nav>
         </div>
         <>
           <Route exact path="/" component={HomePage} />
           <Route path="/my-recipes" 
-          component={MyRecipes}
-          myRecipes={this.state.myRecipes} />
+          render={(props) => <MyRecipes {...props} myRecipes={this.state.myRecipes} handleDeleteRecipe={this.handleDeleteRecipe}/>} />
         </>
-        <div className="page-overlay hidden">
+        <div className={`"page-overlay" ${this.state.hiddenToggle ? "hidden" : ""}`}>
         <div className="create-recipe-form">
         <form onSubmit={this.handleCreateRecipe}>
           <input type="text" placeholder="Title.." id="rname" name="rname" />
@@ -65,7 +80,7 @@ render() {
           <br /><br />
           <button type="submit" >Add recipe</button>
         </form>
-        <button>Cancel</button>
+        <button onClick={this.toggleHiddenClass}>Cancel</button>
         </div>
         </div>
         </div>

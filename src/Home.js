@@ -23,6 +23,7 @@ export default class HomePage extends React.Component {
             selectedIngredients: [],
         }
     }
+    
     componentDidMount() {
         const ingredientButtons = document.querySelectorAll(".ingredient");
         const ingredientContent = [...ingredientButtons].map(button => button.textContent)
@@ -30,6 +31,7 @@ export default class HomePage extends React.Component {
             allIngredients: ingredientContent,
         })
     }
+
     handleSearchInputChange = event => {
         this.setState({
             searchInput: event.target.value
