@@ -51,8 +51,6 @@ In the Search component, I created a state variable to store the search query an
 
 In the Results component, I created a state variable to store the search results and a function to handle displaying the recipe details when a user clicks on a recipe. I then mapped over the search results and rendered them as Recipe components, passing the recipe details as props.
 
-To improve the visual design of the app, I used CSS modules to create separate stylesheets for each component and imported them as needed. I also used Flexbox and CSS Grid to create a responsive layout that looks great on desktop and mobile devices.
-
 Overall, my approach to building this app was to break down the functionality into separate class components and focus on one feature at a time. This allowed me to create a modular and reusable codebase that is easy to maintain and update in the future.
 
 Search Functionality:
