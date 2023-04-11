@@ -16,7 +16,7 @@ To access the code for this project, follow these steps:
    
    
 ### Timeframe & Working Team
-This project was completed individually over a period of 1 wee  
+This project was completed individually over a period of 1 week  
   
   
 ### Technologies Used
